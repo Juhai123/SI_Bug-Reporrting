@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable=['project_name','instansi_id', 'link'];
+    protected $fillable=['project_name','instansi_id', 'link', 'user_id'];
 
     public function instansi(){
         return $this->belongsTo(Instansi::class);
@@ -20,8 +20,14 @@ class Project extends Model
         return $this->hasMany(Bug::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function project_user()
     {
-        return $this->belongsTo(Project_user::class);
+        return $this->hasMany(Project_user::class);
     }
+
 }

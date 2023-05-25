@@ -11,11 +11,11 @@ class Task extends Model
 
     protected $fillable=['bug_id','user_id', 'description', 'start', 'end', 'information'];
 
-    public function bugs(){
+    public function bug(){
         return $this->belongsTo(Bug::class);
     }
 
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

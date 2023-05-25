@@ -1,21 +1,6 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Sofbox - Responsive Bootstrap 4 Admin Dashboard Template</title>
-      <!-- Favicon -->
-      <link rel="shortcut icon" href="{{asset('sofbox-dashboard-lite/html/images/favicon.ico')}}" />
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="{{asset('sofbox-dashboard-lite/html/css/bootstrap.min.css')}}">
-      <!-- Typography CSS -->
-      <link rel="stylesheet" href="{{asset('sofbox-dashboard-lite/html/css/typography.css')}}">
-      <!-- Style CSS -->
-      <link rel="stylesheet" href="{{asset('sofbox-dashboard-lite/html/css/style.css')}}">
-      <!-- Responsive CSS -->
-      <link rel="stylesheet" href="{{asset('sofbox-dashboard-lite/html/css/responsive.css')}}">
-   </head>
+   @include('layouts.header')
    <body>
       <!-- loader Start -->
       <div id="loading">
@@ -42,7 +27,7 @@
             <div class="iq-sidebar-logo d-flex justify-content-between">
                <a href="softbox-dashboard-lite/html/index.html">
                <img src="images/logo.png" class="img-fluid" alt="">
-               <span>Sofbox</span>
+               <span>SI Bug Reporting</span>
                </a>
                <div class="iq-menu-bt align-self-center">
                   <div class="wrapper-menu">
@@ -55,20 +40,32 @@
             <div id="sidebar-scrollbar">
                <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
-                     <li class="iq-menu-title"><i class="ri-separator"></i><span>Main</span></li>
-                     <li class="active">
+                     <li>
                         <a href="#dashboard" class="iq-waves-effect collapsed">
                            <i class="ri-home-4-line"></i><span>Dashboard</span></a>
                            </li> <!-- End Dashboard -->
+                           <li class="iq-menu-title"><i class="ri-separator"></i><span>Menu</span></li>
                      <li>
-                        <a href="#mailbox" class="iq-waves-effect collapsed">
-                           <i class="ri-mail-line"></i><span>Bug</span></a>
+                        <a href="{{ route('admin.bug.index') }}" class="iq-waves-effect">
+                        <!-- nav-link {{ Request()->routeIs('admin.bug.*') ? '' : 'collapsed' }} -->
+                           <i class="fa fa-bug"></i><span>Bug</span></a>
                      </li> <!-- End Bug -->
                      <li>
                         <a href="todo.html" class="iq-waves-effect">
                            <i class="ri-chat-check-line"></i><span>Project</span></a>
                         </li> <!-- End Project -->
-                    
+                     <li>
+                        <a href="todo.html" class="iq-waves-effect">
+                           <i class="ri-chat-check-line"></i><span>Programmer</span></a>
+                        </li> <!-- End Programmer -->
+                     <li>
+                        <a href="todo.html" class="iq-waves-effect">
+                           <i class="fa fa-users"></i><span>Manajemen User</span></a>
+                        </li> <!-- End Manajemen User -->
+                     <li>
+                        <a href="todo.html" class="iq-waves-effect">
+                           <i class="ri-chat-check-line"></i><span>History</span></a>
+                        </li> <!-- End History -->
                   </ul>
                </nav>
                <div class="p-3"></div>
@@ -233,7 +230,7 @@
             </div>
          </div>
          <!-- TOP Nav Bar END -->
-         <!-- Page Content  -->
+         <!-- Page Content 
          <div id="content-page" class="content-page">
             <div class="container-fluid">
                <div class="row">
@@ -299,61 +296,13 @@
                
                  
                   
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>
          </div>
       </div>
       <!-- Wrapper END -->
-      <!-- Footer -->
-      <footer class="bg-white iq-footer">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-6">
-                  <ul class="list-inline mb-0">
-                     <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                     <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
-                  </ul>
-               </div>
-               <div class="col-lg-6 text-right">
-                  Copyright 2020 <a href="#">Sofbox</a> All Rights Reserved.
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- Footer END -->
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/jquery.min.js')}}"></script>
-      <script src="{{asset('sofbox-dashboard-lite/html/js/popper.min.js')}}"></script>
-      <script src="{{asset('sofbox-dashboard-lite/html/js/bootstrap.min.js')}}"></script>
-      <!-- Appear JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/jquery.appear.js')}}"></script>
-      <!-- Countdown JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/countdown.min.js')}}"></script>
-      <!-- Counterup JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/waypoints.min.js')}}"></script>
-      <script src="{{asset('sofbox-dashboard-lite/html/js/jquery.counterup.min.js')}}"></script>
-      <!-- Wow JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/wow.min.js')}}"></script>
-      <!-- Apexcharts JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/apexcharts.js')}}"></script>
-      <!-- Slick JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/slick.min.js')}}"></script>
-      <!-- Select2 JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/select2.min.js')}}"></script>
-      <!-- Owl Carousel JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/owl.carousel.min.js')}}"></script>
-      <!-- Magnific Popup JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/jquery.magnific-popup.min.js')}}"></script>
-      <!-- Smooth Scrollbar JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/smooth-scrollbar.js')}}"></script>
-      <!-- lottie JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/lottie.js')}}"></script>
-      <!-- Chart Custom JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/chart-custom.js')}}"></script>
-      <!-- Custom JavaScript -->
-      <script src="{{asset('sofbox-dashboard-lite/html/js/custom.js')}}"></script>
+     @include('layouts.footer')
    </body>
 </html>

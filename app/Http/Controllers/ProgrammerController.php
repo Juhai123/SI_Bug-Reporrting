@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class ProgrammerController extends Controller
@@ -11,7 +12,8 @@ class ProgrammerController extends Controller
      */
     public function index()
     {
-        return view('programmer.dashboard');
+        $tasks = Task::where('user_id',auth()->user()->id)->get();
+        return view('programmer.dashboard', compact('tasks'));
     }
 
     /**

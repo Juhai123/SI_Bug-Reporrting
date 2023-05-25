@@ -15,6 +15,10 @@ return new class extends Migration
             $table->string('phone', 20)->nullable()->after('password');
             $table->text('address')->nullable()->after('phone');
             $table->string('job');
+            $table->bigInteger('role_id')->unsigned();
+
+            //relation
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
@@ -24,7 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('phone', 'address', 'job');
+            $table->dropColumn('phone', 'address', 'job', 'role_id');
         });
     }
 };

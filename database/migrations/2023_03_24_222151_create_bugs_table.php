@@ -15,13 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('project_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->text('description')->nullable();
             $table->string('file')->nullable();
-            $table->enum('status',['PENDING. ON PROGRESS, DONE, VERIFICATION']);
+            $table->enum('status',
+            ['PENDING',
+            'ON PROGRESS', 
+            'DONE', 
+            'VERIFICATION']);
             $table->integer('progress');
             
              //relation
              $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

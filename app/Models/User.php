@@ -26,6 +26,8 @@ class User extends Authenticatable
         'phone',
         'address',
         'job',
+        'role_id',
+        
 
     ];
 
@@ -53,14 +55,24 @@ class User extends Authenticatable
         return $this->hasMany(Project_user::class);
     }
 
-    public function tasks()
+    public function task()
     {
         return $this->hasMany(Task::class);
     }
 
-    public function bugs()
+    public function bug()
     {
         return $this->hasMany(Bug::class);
+    }
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+
+    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
     

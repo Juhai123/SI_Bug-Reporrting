@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('project_name');
             $table->bigInteger('instansi_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->text('link');
 
             //relation
             $table->foreign('instansi_id')->references('id')->on('instansis')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
 

@@ -9,13 +9,18 @@ class Bug extends Model
 {
     use HasFactory;
 
-    protected $fillable=['name','project_id', 'description', 'file', 'status','progress'];
+    protected $fillable=['name','project_id', 'user_id', 'description', 'file', 'status','progress', 'priority'];
 
-    public function projects(){
+    public function project(){
         return $this->belongsTo(Project::class);
     }
 
-    public function tasks(){
+    public function task(){
         return $this->hasMany(Task::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
